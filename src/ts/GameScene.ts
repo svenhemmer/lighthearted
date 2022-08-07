@@ -19,6 +19,8 @@ export default class GameScene extends Phaser.Scene {
     const tileset = tilemap.addTilesetImage("tiles");
     tilemap.createLayer(0, tileset, 0, 0);
 	tilemap.createLayer(1, tileset, 0, 0);
+	console.log(tilemap.getObjectLayer('Kollision'));
+	console.log(tilemap)
 
     this._inputs = new Inputs(this);
 

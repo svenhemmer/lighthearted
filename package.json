@@ -1,28 +1,20 @@
 {
-  "name": "phaser-webpack",
-  "version": "3.0.1",
-  "description": "Phaser Webpack",
-  "main": "src/js/index.ts",
+  "name": "Lighthearted",
+  "version": "0.9.0",
+  "description": "Lighthearted game",
+  "main": "src/ts/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sebsowter/phaser-webpack.git"
-  },
-  "author": "Seb Sowter",
+  "author": "Sv78er",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sebsowter/phaser-webpack/issues"
-  },
   "babel": {
     "presets": [
       "@babel/preset-env"
     ]
   },
-  "homepage": "https://github.com/sebsowter/phaser-webpack#readme",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
