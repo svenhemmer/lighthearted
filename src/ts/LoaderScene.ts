@@ -4,7 +4,7 @@ export default class LoaderScene extends Phaser.Scene {
     this.load.image("tiles", "./assets/images/tiles.png");
 	this.load.spritesheet("wizard", "./assets/images/wizard.png", {
 		frameWidth: 16,
-		frameHeight: 16,
+		frameHeight: 32,
 	});
   }
 

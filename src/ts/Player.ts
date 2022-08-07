@@ -31,9 +31,10 @@ export default class Wizzy extends Phaser.Physics.Arcade.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.world.enable(this);
 
+	this.body.setSize(8, 8).setOffset(4, 20);
     this.body.setAllowDrag(true).setMaxVelocityX(160).setMaxVelocityY(160);
 
-    this.setSize(24)
+    this
       .setCollideWorldBounds(true)
       .setDragX(Math.pow(16, 2))
       .setDragY(Math.pow(16, 2))
@@ -43,14 +44,13 @@ export default class Wizzy extends Phaser.Physics.Arcade.Sprite {
   public setState(value: States) {
     switch (value) {
       case States.STANDING:
-        this.setSize(24)
-			.setVelocityX(this.body.velocity.x * 0.5)
+        this.setVelocityX(this.body.velocity.x * 0.5)
 			.setVelocityY(this.body.velocity.y * 0.5)
 			.play("stand");
         break;
 
       case States.WALKING:
-        this.setSize(24).play("walk");
+        this.play("walk");
         break;
     }
 
@@ -81,11 +81,5 @@ export default class Wizzy extends Phaser.Physics.Arcade.Sprite {
     }
 
     super.preUpdate(time, delta);
-  }
-
-  public setSize(height: number) {
-    super.setSize(16, height);
-    this.body.setOffset(0, this.height - height);
-    return this;
   }
 }
