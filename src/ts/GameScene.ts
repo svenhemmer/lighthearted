@@ -1,6 +1,7 @@
 import Inputs from "./Inputs";
 import Wizzy from "./Player";
 import { tiledObject2Block } from "./utils/tiledObject2Block";
+import { TrackerWrapper } from "./libs/bassoon-wrapper";
 
 export default class GameScene extends Phaser.Scene {
   private _inputs: Inputs;
@@ -14,6 +15,9 @@ export default class GameScene extends Phaser.Scene {
   }
 
   public create() {
+	TrackerWrapper.init();
+	TrackerWrapper.load(this.cache.binary.get('audio-mod'));
+	TrackerWrapper.play();
     const tilemap = this.make.tilemap({
       key: "tilemap",
     });

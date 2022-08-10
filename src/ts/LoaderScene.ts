@@ -6,6 +6,7 @@ export default class LoaderScene extends Phaser.Scene {
 		frameWidth: 16,
 		frameHeight: 32,
 	});
+    this.load.binary("audio-mod", "./assets/audio/GSLINGER.MOD");
   }
 
   public create() {
