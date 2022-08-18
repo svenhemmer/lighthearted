@@ -34,7 +34,7 @@ export const ModPlayer = {
 
     initContext() {
         this.mixingRate = this.context.sampleRate;
-        return this.context.audioWorklet.addModule('/assets/mod-processor.js')
+        return this.context.audioWorklet.addModule('assets/mod-processor.js')
 			.then(() => {
 				const numAnalysers = this.audioWorkletSupport && 4 || 2;
 
