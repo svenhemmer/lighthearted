@@ -1,7 +1,7 @@
 import Inputs from "./Inputs";
 import Wizzy from "./Player";
 import { tiledObject2Block } from "./utils/tiledObject2Block";
-import { TrackerWrapper } from "./libs/bassoon-wrapper";
+import { setPlayerBuffer, play, stop} from './libs/modplayer-wrapper';
 
 export default class GameScene extends Phaser.Scene {
   private _inputs: Inputs;
@@ -14,10 +14,9 @@ export default class GameScene extends Phaser.Scene {
     });
   }
 
-  public create() {
-	TrackerWrapper.init();
-	TrackerWrapper.load(this.cache.binary.get('audio-mod'));
-	TrackerWrapper.play();
+  public create() { 
+
+	setPlayerBuffer(this.cache.binary.get('audio-mod'));
     const tilemap = this.make.tilemap({
       key: "tilemap",
     });
@@ -36,6 +35,8 @@ export default class GameScene extends Phaser.Scene {
 		wall.body.height = height;
 	})
 
+	this.input.keyboard.on('keydown-M', play);
+	this.input.keyboard.on('keydown-N', stop);
     this._inputs = new Inputs(this);
 
 	const player = new Wizzy(this, 100, 40);
@@ -46,6 +47,7 @@ export default class GameScene extends Phaser.Scene {
 	this.physics.add.collider(player, staticColGroup);
     this.cameras.main.setBounds(0, 0, widthInPixels, heightInPixels);
 	this.cameras.main.startFollow(player);
+	setTimeout(() =>  play(), 5000);
   }
 
   public get inputs() {
